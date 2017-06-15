@@ -22,4 +22,8 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return str(self.author) + self.content[0:10] +"......"
-
+	 
+	@classmethod
+	def create(cls,content,post_pk,user):
+		comment =cls(content=content, author =user,post_id=post_pk)
+		return comment
